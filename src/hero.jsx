@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import ButtonPrimary from "./components/button1";
 import ButtonSecondary from './components/button2'
 
 function Hero() {
@@ -69,7 +70,7 @@ function Hero() {
     <div className="h-[100vh] relative w-full text-center flex flex-col justify-center items-center">
   <div className="relative">
     <div className="text-white text-[1.5rem] font-[400] leading-4">Promptverse AI</div>
-    <div className="text-white text-[4rem] font-extrabold cursor-pointer">
+    <div className="text-white text-[2rem] md:text-[3rem] lg:text-[4rem] font-extrabold cursor-pointer">
       Find Inspiration.<br />
       Create, Generate, <br /> Produce & Automate.
     </div>
@@ -81,6 +82,7 @@ function Hero() {
       productivity.
     </div>
     <div className="flex justify-center items-center gap-6 mt-6">
+      <ButtonPrimary innerHtml="Start Generating" />
       <ButtonSecondary innerHtml="Download" />
       </div>
       
@@ -89,7 +91,7 @@ function Hero() {
   </div>
 
       <svg
-        className="absolute -bottom-0 md:w-[661.125px] md:h-[661.125px] flex-shrink: 0;"
+        className="absolute -bottom-0 -z-10 md:w-[661.125px] md:h-[661.125px] flex-shrink: 0;"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1910 1038"
         fill="none"

@@ -19,8 +19,7 @@ function Hero() {
   const moonRef =useRef(null);
 
   useEffect(() => {
-    const smMediaQuery = window.matchMedia('(max-width: 640px)'); // Tailwind's 'sm' breakpoint is 640px
-
+    const smMediaQuery = window.matchMedia('(max-width: 768px)'); 
     const handleMouseMove = (e) => {
       const gallery = galleryRef.current;
       if (!gallery) return;

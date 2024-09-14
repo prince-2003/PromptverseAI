@@ -1,34 +1,54 @@
-import Textbox
- from "./textbox";
+import React, { useState, useEffect } from 'react';
+import Textbox from './textbox';
+
 function Infinitescroll({ delay }) {
-    return (
-      <div className="overflow-hidden whitespace-nowrap">
-        <div
-          className="flex gap-2 animate-scroll-x"
-          style={{ animationDelay: `${delay}ms` }}
-        >
-          <Textbox
-            className={`relative transition-transform duration-300 transform group-hover:translate-y-0`}
-            prompt="Promptverse AI is a powerful tool that can generate text based on your prompts"
-            url="www.google.com"
-          />
-          <Textbox
-            className={`relative transition-transform duration-300 transform group-hover:translate-y-0`}
-            prompt="Promptverse AI is a powerful tool that can generate text based on your prompts"
-            url="www.google.com"
-          />
-          <Textbox
-            className={`relative transition-transform duration-300 transform group-hover:translate-y-0`}
-            prompt="Promptverse AI is a powerful tool that can generate text based on your prompts"
-            url="www.google.com"
-          />
-          <Textbox
-            className={`relative transition-transform duration-300 transform group-hover:translate-y-0`}
-            prompt="Promptverse AI is a powerful tool that can generate text based on your prompts"
-            url="www.google.com"
-          />
-        </div>
+  const [textboxCount, setTextboxCount] = useState(1); 
+
+  
+  const updateTextboxCount = () => {
+    const screenWidth = window.innerWidth;
+    
+    
+    if (screenWidth >= 1200) {
+      setTextboxCount(6);
+    } else if (screenWidth >= 900) {
+      setTextboxCount(5);
+    } else if (screenWidth >= 600) {
+      setTextboxCount(4);
+    } else {
+      setTextboxCount(3);
+    }
+  };
+
+  
+  useEffect(() => {
+    updateTextboxCount(); 
+    window.addEventListener('resize', updateTextboxCount);
+
+    
+    return () => window.removeEventListener('resize', updateTextboxCount);
+  }, []);
+
+  
+  const textboxes = Array.from({ length: textboxCount }, (_, index) => (
+    <Textbox
+      key={index} 
+      className={`relative transition-transform duration-[600ms] transform group-hover:translate-y-0`}
+      prompt="Write an attractive hero title for the following website"
+      url="www.google.com"
+    />
+  ));
+
+  return (
+    <div className="overflow-hidden whitespace-nowrap">
+      <div
+        className="flex gap-2 animate-scroll-x"
+        style={{ animationDelay: `${delay}ms` }}
+      >
+        {textboxes}
       </div>
-    );
-  }
-   export default Infinitescroll;
+    </div>
+  );
+}
+
+export default Infinitescroll;

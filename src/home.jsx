@@ -72,7 +72,7 @@ function Home() {
           within a sleek, futuristic design. Create more, effortlessly.
         </div>
       </div>
-      <div className="mt-16 flex justify-center w-full">
+      <div className="mt-16 flex justify-center w-full p-2">
         <div className="hidden md:flex gap-4 items-center w-[80%]">
           <div>
             <img src="/Assests/Column.png" alt="Column" />
@@ -85,7 +85,7 @@ function Home() {
           </div>
         </div>
         <div className="flex justify-center md:hidden gap-4 items-center w-[80%] relative">
-        <div className="absolute left-0 block md:hidden backdrop-filter backdrop-blur-lg rounded-[20px] p-2">
+        <div className="absolute -left-4 block md:hidden backdrop-filter backdrop-blur-lg rounded-[20px] p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 320 512"
@@ -102,11 +102,12 @@ function Home() {
 
        
         <div>
-          <img src={images[indx]} alt={`Image ${indx + 1}`} />
+          <img className="w-[100%] h-[100%] object-cover rounded-lg"
+          src={images[indx]} alt={`Image ${indx + 1}`} />
         </div>
 
         
-        <div className="absolute right-0 block md:hidden backdrop-filter backdrop-blur-lg rounded-[20px] p-2">
+        <div className="absolute -right-4 block md:hidden backdrop-filter backdrop-blur-lg rounded-[20px] p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 320 512"

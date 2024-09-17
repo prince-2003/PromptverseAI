@@ -1,7 +1,6 @@
-import { useState } from "react";
+
 import Infinitescroll from "./components/infintescroll";
-import ButtonPrimary from "./components/button1";
-import ButtonSecondary from "./components/button2";
+
 
 function Home() {
 

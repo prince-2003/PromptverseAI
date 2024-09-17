@@ -1,41 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Textbox from './textbox';
 
 function Infinitescroll({ delay }) {
   const [textboxCount, setTextboxCount] = useState(1); 
+  const containerRef = useRef(null); 
 
   
   const updateTextboxCount = () => {
-    const screenWidth = window.innerWidth;
+    const containerWidth = window.innerWidth; 
+    const textboxWidth = containerRef.current ? containerRef.current.getBoundingClientRect().width : 300;
     
-    
-    if (screenWidth >= 1200) {
-      setTextboxCount(6);
-    } else if (screenWidth >= 900) {
-      setTextboxCount(5);
-    } else if (screenWidth >= 600) {
-      setTextboxCount(4);
-    } else {
-      setTextboxCount(3);
-    }
+    const count = Math.floor(containerWidth / textboxWidth); 
+    setTextboxCount((count*2) || 1);
   };
 
-  
   useEffect(() => {
     updateTextboxCount(); 
-    window.addEventListener('resize', updateTextboxCount);
+    window.addEventListener('resize', updateTextboxCount); 
 
-    
-    return () => window.removeEventListener('resize', updateTextboxCount);
+    return () => window.removeEventListener('resize', updateTextboxCount); 
   }, []);
 
   
   const textboxes = Array.from({ length: textboxCount }, (_, index) => (
     <Textbox
       key={index} 
-      className={`relative transition-transform duration-[600ms] transform group-hover:translate-y-0`}
+      className={`relative transition-transform duration-[600 transform group-hover:translate-y-0`}
       prompt="Write an attractive hero title for the following website"
       url="www.google.com"
+      forwardRef={containerRef} 
     />
   ));
 

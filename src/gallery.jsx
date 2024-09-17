@@ -63,7 +63,6 @@ function Gallery() {
             <img
               className="w-[100%] h-[100%] object-cover rounded-lg"
               src={images[indx]}
-              alt={`Image ${indx + 1}`}
             />
           </div>
 

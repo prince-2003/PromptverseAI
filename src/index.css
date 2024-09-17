@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply bg-black; /* Replace with the desired Tailwind color */
+    @apply bg-black; 
   }
 
 @keyframes scroll-x {

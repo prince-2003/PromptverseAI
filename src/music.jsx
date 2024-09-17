@@ -52,21 +52,22 @@ function Music() {
           </div>
 
           <div className="order-2 relative md:order-1 w-full md:w-[50%] flex justify-center">
-      <div className="flex absolute top-[50%] left-[50%] justify-center items-center gap-4 mt-4">
-        <button
-          onClick={togglePlay}
-          className="flex justify-center items-center gap-2 backdrop-filter backdrop-blur-lg rounded-[50px] p-4   "
-        >
-          {isPlaying ? <PauseIcon /> : <PlayIcon />}
-        </button>
-        <audio ref={audioPlayer} src="/Assests/music.mp3"></audio>
-      </div>
-      <img
-        className="w-full h-auto"
-        src="/Assests/Music.png"
-        alt="AI Voice Illustration"
-      />
-    </div>
+  <div className="flex absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 justify-center items-center gap-4">
+    <button
+      onClick={togglePlay}
+      className="flex justify-center items-center gap-2 backdrop-filter backdrop-blur-lg rounded-[50px] p-4"
+    >
+      {isPlaying ? <PauseIcon /> : <PlayIcon />}
+    </button>
+    <audio ref={audioPlayer} src="/Assests/music.mp3"></audio>
+  </div>
+  <img
+    className="w-full h-auto"
+    src="/Assests/Music.png"
+    alt="AI Voice Illustration"
+  />
+</div>
+
         </div>
       </div>
     </>

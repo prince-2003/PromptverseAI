@@ -1,3 +1,6 @@
+import React from "react";
+import styled from "styled-components";
+
 const features = [
   {
     head: "Write mails and  replies",
@@ -27,7 +30,7 @@ const features = [
 
 function Text({head, para}) {
   return (
-    <div className=" hover:bg-white p-2  text-white text-start font-[500]">
+    <div className=" card 2 hover:bg-[#0E0E0E] rounded-lg p-4 text-white text-start font-[500]">
       {head} <br />
       <span className="font-light text-gray-400">{para}</span>
     </div>
@@ -37,7 +40,7 @@ function Text({head, para}) {
 function Features() {
   return (
     <>
-      <div className="flex flex-col my-10 w-[80vw] justify-center mx-auto">
+      <div className="flex flex-col my-10 w-[80vw]  justify-center mx-auto">
         <div className="text-gray-400 font-[500] text-[2rem]">
           More Features
           <br />
@@ -45,14 +48,27 @@ function Features() {
           to an individual
           <hr className="border-[1px] border-gray-400 w-[100%] mt-2" />
         </div>
-        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-6">
+        <StyledWrapper>
+        <div className=" cards grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-6">
         {features.map((feature, index) => (
           <Text key={index} head={feature.head} para={feature.para} />
         ))}
-        </div>
+        </div></StyledWrapper>
       </div>
     </>
   );
 }
+
+const StyledWrapper = styled.div`
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
+`;
 
 export default Features;

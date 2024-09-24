@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import ButtonPrimary from "./components/button1";
+import ButtonSecondary from "./components/button2";
 function Music() {
     const PlayIcon = () => (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="18" width="18" fill="grey">
@@ -39,15 +41,23 @@ function Music() {
       </div>
       <div className="mt-16 flex justify-center w-full">
         <div className="flex gap-4 flex-col md:flex-row w-[80%] bg-[#0E0E0E] p-4">
-          <div className="flex flex-col w-full md:w-[50%] text-white">
+          <div className="flex flex-col justify-between w-full md:w-[50%] text-white">
             <div className="text-[2rem] font-semibold">
               Enhance Your Projects with Ultra-Realistic AI Voices
-            </div>
-            <div className="mt-4">
+            <div className="text-[1rem] font-light mt-4">
               Create engaging voice content with unique AI Voices perfect for
               your audience. Generate conversational, long-form, or short-form
               voice content with consistent quality and performances. Secure and
               private voice generations with full commercial and copyrights.
+            </div>
+            </div>
+            <div className=" hidden md:flex flex-wrap gap-4 mt-4">
+              <ButtonPrimary innerHtml="Train voice models" svg={false} />
+              <ButtonPrimary innerHtml="Text-to-speech" svg={false} />
+              <ButtonPrimary innerHtml="AI voice generation" svg={false} />
+              <ButtonPrimary innerHtml="AI music production" svg={false} />
+              <ButtonPrimary innerHtml="AI Composition" svg={false} />
+              <ButtonSecondary innerHtml="Generate Now" />
             </div>
           </div>
 

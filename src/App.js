@@ -5,7 +5,7 @@ import Home from './home.jsx';
 import Music from './music.jsx';
 import Trending from './trending.jsx';
 import Gallery from './gallery.jsx';
-import Spotify from './spotify.jsx';
+
 
 
 function App() {
@@ -19,7 +19,6 @@ function App() {
     <Trending />
     <Gallery />
     <Music/>
-    <Spotify />
     </>
   )
 }

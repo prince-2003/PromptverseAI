@@ -59,7 +59,7 @@ function Gallery() {
             </svg>
           </div>
 
-          <div>
+          <div className="object-cover flex justify-center items-center w-[100vw]">
             <img
               className="w-[100%] h-[100%] object-cover rounded-lg"
               src={images[indx]}

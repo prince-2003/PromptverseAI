@@ -10,8 +10,8 @@ function Infinitescroll({ delay }) {
     const containerWidth = window.innerWidth; 
     const textboxWidth = containerRef.current ? containerRef.current.getBoundingClientRect().width : 300;
     
-    const count = Math.floor(containerWidth / textboxWidth); 
-    setTextboxCount((count*2) || 1);
+    const count = Math.floor(containerWidth / textboxWidth)*2; 
+    setTextboxCount(count|| 1);
   };
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function Infinitescroll({ delay }) {
   const textboxes = Array.from({ length: textboxCount }, (_, index) => (
     <Textbox
       key={index} 
-      className={`relative transition-transform duration-[600 transform group-hover:translate-y-0`}
+      className={`relative transition-transform duration-300 transform group-hover:translate-y-0`}
       prompt="Write an attractive hero title for the following website"
       url="www.google.com"
       forwardRef={containerRef} 

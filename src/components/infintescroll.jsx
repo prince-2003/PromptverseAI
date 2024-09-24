@@ -11,7 +11,7 @@ function Infinitescroll({ delay }) {
     const textboxWidth = containerRef.current ? containerRef.current.getBoundingClientRect().width : 300;
     
     const count = Math.floor(containerWidth / textboxWidth)*2; 
-    setTextboxCount(count|| 1);
+    setTextboxCount((count+1)|| 1);
   };
 
   useEffect(() => {

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Text from "./components/gridtxt";
+import ButtonSecondary from "./components/button2.jsx";
 
 const features = [
   {
@@ -27,20 +29,17 @@ const features = [
     para: "Whether it's the legal execution of a transaction, interior design or the technical details of a building, our brokers will tell you everything.",
   },
 ];
-
-function Text({head, para}) {
-  return (
-    <div className=" card 2 hover:bg-[#0E0E0E] rounded-lg p-4 text-white text-start font-[500]">
-      {head} <br />
-      <span className="font-light text-gray-400">{para}</span>
-    </div>
-  );
-}
+const itemPositions = [
+  { top: "80%", left: "70%", scale: ".9" },
+  { top: "5%", left: "80%", scale: ".5" },
+  { top: "10%", left: "2%", scale: "3" },
+  { top: "0%", left: "10%", scale: ".6" },
+];
 
 function Features() {
   return (
     <>
-      <div className="flex flex-col my-10 w-[80vw]  justify-center mx-auto">
+      <div className="flex flex-col my-20 w-[80vw]  justify-center mx-auto">
         <div className="text-gray-400 font-[500] text-[2rem]">
           More Features
           <br />
@@ -49,26 +48,49 @@ function Features() {
           <hr className="border-[1px] border-gray-400 w-[100%] mt-2" />
         </div>
         <StyledWrapper>
-        <div className=" cards grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-6">
-        {features.map((feature, index) => (
-          <Text key={index} head={feature.head} para={feature.para} />
-        ))}
-        </div></StyledWrapper>
+          <div className=" cards grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-6">
+            {features.map((feature, index) => (
+              <Text key={index} head={feature.head} para={feature.para} />
+            ))}
+          </div>
+        </StyledWrapper>
       </div>
+
+      <div className="mt-10 w-full flex justify-center">
+  <div className="flex flex-col gap-5 py-10 md:py-20 text-white w-[80%] bg-[#0E0E0E] items-center relative overflow-hidden rounded-lg">
+    <p className="text-[1.5rem] md:text-[2rem] font-[600] text-center md:text-start">
+      Promptverse has no limitations. <br />
+      Get started on a journey with Promptverse. <br />
+    </p>
+    <ButtonSecondary innerHtml="Create an Account" />
+    {itemPositions.map((position, index) => (
+      <img
+        src="/Assests/star.svg" 
+        key={index}
+        className="floating-logo absolute w-8 h-8 sm:w-16 sm:h-16"
+        style={{
+          top: position.top,
+          left: position.left,
+          transform: `scale(${position.scale})`,
+        }}
+      />
+    ))}
+  </div>
+</div>
+
     </>
   );
 }
 
 const StyledWrapper = styled.div`
+  .cards .card:hover {
+    transform: scale(1.1, 1.1);
+  }
 
-.cards .card:hover {
-  transform: scale(1.1, 1.1);
-}
-
-.cards:hover > .card:not(:hover) {
-  filter: blur(10px);
-  transform: scale(0.9, 0.9);
-}
+  .cards:hover > .card:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
+  }
 `;
 
 export default Features;

@@ -44,7 +44,7 @@ function Features() {
   useEffect(() => {
     const cardElement = document.querySelector('.cards');
     if (cardElement) {
-      setHeight(cardElement.offsetHeight / 3);
+      setHeight(cardElement.offsetHeight / 4);
       
     }
   }, []);
@@ -76,11 +76,15 @@ function Features() {
     <ButtonSecondary innerHtml="Create an Account" />
 
     <div 
-  className={` bg-white blur-[300px] absolute animate-[moveDot_10s_linear_infinite]`} 
-  style={{ height: `${height}px`,
-  width: `${height}px`,
-  borderRadius: "50%",}}
+  className={`bg-white absolute animate-[moveDot_10s_linear_infinite]`} 
+  style={{
+    height: `${height}px`,
+    width: `${height}px`,
+    borderRadius: "50%",
+    filter: `blur(${height}px)`
+  }}
 ></div>
+
 
     
     {itemPositions.map((position, index) => (

@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState, useEffect} from "react";
 import styled from "styled-components";
 import Text from "./components/gridtxt";
 import ButtonSecondary from "./components/button2.jsx";
@@ -36,7 +36,18 @@ const itemPositions = [
   { top: "0%", left: "10%", scale: ".6" },
 ];
 
+
+
 function Features() {
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    const cardElement = document.querySelector('.cards');
+    if (cardElement) {
+      setHeight(cardElement.offsetHeight / 3);
+      
+    }
+  }, []);
   return (
     <>
       <div className="flex flex-col my-20 w-[80vw]  justify-center mx-auto">
@@ -57,12 +68,21 @@ function Features() {
       </div>
 
       <div className="mt-10 w-full flex justify-center">
-  <div className="flex flex-col gap-5 py-10 md:py-20 text-white w-[80%] bg-[#0E0E0E] items-center relative overflow-hidden rounded-lg">
+  <div className="card flex flex-col gap-5 py-10 md:py-20 text-white w-[80%] bg-[#0E0E0E] items-center relative overflow-hidden rounded-lg">
     <p className="text-[1.5rem] md:text-[2rem] font-[600] text-center md:text-start">
       Promptverse has no limitations. <br />
       Get started on a journey with Promptverse. <br />
     </p>
     <ButtonSecondary innerHtml="Create an Account" />
+
+    <div 
+  className={` bg-white blur-[300px] absolute animate-[moveDot_10s_linear_infinite]`} 
+  style={{ height: `${height}px`,
+  width: `${height}px`,
+  borderRadius: "50%",}}
+></div>
+
+    
     {itemPositions.map((position, index) => (
       <img
         src="/Assests/star.svg" 
@@ -77,6 +97,7 @@ function Features() {
     ))}
   </div>
 </div>
+
 
     </>
   );

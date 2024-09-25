@@ -42,9 +42,10 @@ function Features() {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    const cardElement = document.querySelector('.cards');
+    const cardElement = document.querySelector('.card');
     if (cardElement) {
-      setHeight(cardElement.offsetHeight / 4);
+      setHeight(cardElement.offsetHeight / 2);
+      console.log(cardElement.offsetHeight )
       
     }
   }, []);

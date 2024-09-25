@@ -6,6 +6,7 @@ import Music from './music.jsx';
 import Trending from './trending.jsx';
 import Gallery from './gallery.jsx';
 import Features from './feaures.jsx';
+import Footer from './footer.jsx';
 
 
 
@@ -21,6 +22,7 @@ function App() {
     <Gallery />
     <Music/>
     <Features />
+    <Footer />
     </>
   )
 }
